@@ -22,9 +22,9 @@ function checkScopeVar(){
 checkScopeVar(); //block block
 
 function checkScopeLet(){
-    //let x = "function";
+    let x = "function"; // This can be access any where with in the function
     if(9 > 4){
-        let x = "block";
+        let x = "block"; //This can be access only with in this if block only
         console.log(x);
     }
     console.log(x);
