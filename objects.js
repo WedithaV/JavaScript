@@ -87,6 +87,54 @@ var myStorage = {
 console.log(myStorage.car.inside["glove box"]);
 
 
+//Coding challenge
+
+var collection = {
+    "1" : {
+        "album" : "Slippery When Wet",
+        "artist" : "Bon Jovi",
+        "tracks" : ["Let It Rock", "You Give Love a Bad Name"]
+    },
+
+    "2" : {
+        "album" : "1999",
+        "artist" : "Prince",
+        "tracks" : ["1999", "Little Red Corvette"]
+    },
+
+    "3" : {
+        "artist" : "Robert Palmer",
+        "tracks" : []
+    },
+
+    "4" : {
+        "album" : "ABBA Gold"
+    }
+
+};
+
+
+var collectioncopy = JSON.parse(JSON.stringify(collection));
+
+function updateRecord(id, prop, value){
+    if(value === ""){
+        delete collection[id][prop];  //it is better to use bracket notation. dot notation gives errors
+    }else if(prop === "tracks"){
+        collection[id][prop] = collection[id][prop] || [];
+        //if array is exist it is assign to itself 
+        //if array is not exist create an empty array
+        collection[id][prop].push(value);
+    }else {
+        collection[id][prop] = value;
+    }
+
+    return collection;
+}
+
+console.log(updateRecord("1","tracks","dtx"));
+console.log(updateRecord("4","tracks", "hello"));
+
+
 
 
 
